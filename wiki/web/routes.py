@@ -58,6 +58,13 @@ def create():
             'wiki.edit', url=form.clean_url(form.url.data)))
     return render_template('create.html', form=form)
 
+@bp.route('/todo/', methods=['GET'])
+@protect
+def todo():
+    page = current_wiki.get('todo')
+    if page:
+        return display('todo')
+    return render_template('todo.html')
 
 @bp.route('/edit/<path:url>/', methods=['GET', 'POST'])
 @protect

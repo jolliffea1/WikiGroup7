@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Todo List{% endblock title %}
+{% block content %}
+    <head>
+        <link href="{{ url_for('static', filename='todo.css') }}" rel="stylesheet">
+    </head>
+
+ <div id="todo-header">
+  <input type="text" id="todo-input" placeholder="Add a task...">
+  <span onclick="newTodoItem()" class="todo-add-btn">Add</span>
+</div>
+
+    <ul id="todo-ul"></ul>
+    <script src="{{ url_for('static', filename='todo.js') }}"></script>
+
+{% endblock content %}
+
+{% block sidebar %}
+<p class="alert alert-success">Keep track of your tasks!</p>
+{% endblock sidebar %}

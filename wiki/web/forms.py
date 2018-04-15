@@ -25,7 +25,6 @@ class URLForm(Form):
     def clean_url(self, url):
         return clean_url(url)
 
-
 class SearchForm(Form):
     term = TextField('', [InputRequired()])
     ignore_case = BooleanField(
