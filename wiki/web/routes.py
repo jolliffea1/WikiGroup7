@@ -21,6 +21,7 @@ from wiki.web.forms import URLForm
 from wiki.web import current_wiki
 from wiki.web import current_users
 from wiki.web.user import protect
+from wiki.web.deleteUser import DeleteForm, DeleteJsonParser
 
 
 bp = Blueprint('wiki', __name__)
@@ -172,9 +173,15 @@ def user_admin(user_id):
     pass
 
 
-@bp.route('/user/delete/<int:user_id>/')
-def user_delete(user_id):
-    pass
+@bp.route('/user/deleteUser/', methods=['GET', 'POST'])
+def user_delete():
+    form = DeleteForm()
+    if form.is_submitted():
+        parser = DeleteJsonParser()
+        name = "" + form.name.data
+        parser.delete_user(name)
+        return redirect(request.args.get("next") or url_for('wiki.index'))
+    return render_template('deleteUser.html', form=form)
 
 
 """
