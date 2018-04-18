@@ -1,16 +1,26 @@
 {
   "name": {
-    "active": true,
-    "authentication_method": "cleartext",
-    "password": "1234",
-    "authenticated": true,
+    "active": true, 
+    "authentication_method": "cleartext", 
+    "password": "1234", 
+    "authenticated": true, 
     "roles": []
-  },
+  }, 
   "sam": {
-    "active": true,
-    "authentication_method": "cleartext",
-    "password": "1234",
-    "authenticated": true,
+    "active": true, 
+    "authentication_method": "cleartext", 
+    "password": "1234", 
+    "authenticated": true, 
     "roles": []
+  }, 
+  "Jesus": {
+    "active": true, 
+    "authentication_method": "cleartext", 
+    "authenticated": true, 
+    "roles": [
+      "Lord", 
+      "Savior", 
+      "Welp"
+    ]
   }
 }

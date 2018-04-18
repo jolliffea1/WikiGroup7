@@ -1,5 +1,5 @@
 from . import WikiBaseTestCase
-
+from wiki.web import UserForm
 
 class WebContentTestCase(WikiBaseTestCase):
     """
@@ -14,3 +14,8 @@ class WebContentTestCase(WikiBaseTestCase):
         rsp = self.app.get('/')
         assert b"You did not create any content yet." in rsp.data
         assert rsp.status_code == 200
+
+    def test_write_JsonParser(self):
+        jsonparser = UserForm.MyJsonParser
+
+        assert jsonparser.add_user("name","1234") is False

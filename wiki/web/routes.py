@@ -12,6 +12,7 @@ from flask_login import current_user
 from flask_login import login_required
 from flask_login import login_user
 from flask_login import logout_user
+from wiki.web.UserForm import UserForm, MyJsonParser
 
 from wiki.core import Processor
 from wiki.web.forms import EditorForm
@@ -162,10 +163,21 @@ def user_index():
     pass
 
 
-@bp.route('/user/create/')
+@bp.route('/user/newUser/', methods=['GET', 'POST'])
 def user_create():
-    pass
-
+    form = UserForm()
+    if form.is_submitted():
+        role = form.roles
+        roles = role.data
+        roles1 = roles.split(',')
+        jsonParse = MyJsonParser()
+        jsonParse.add_user(form.username.data, form.password,roles1)
+        user = current_users.get_user(form.username.data)
+        login_user(user)
+        user.set('authenticated', True)
+        flash('Login successful.', 'success')
+        return redirect(request.args.get("next") or url_for('wiki.index'))
+    return render_template('newUser.html', form=form)
 
 @bp.route('/user/<int:user_id>/')
 def user_admin(user_id):

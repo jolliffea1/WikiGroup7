@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}New User{% endblock title %}
+
+{% block content %}
+<form class="form form-inline" method="POST">
+    <p>Username: {{ form.username(placeholder='') }}</p><br>
+    <p>Password: {{form.password(placeholder = '')}}</p><br>
+    <p>Roles: {{form.roles(placeholder = '')}} delimit it by ,</p><br>
+	<input type="submit" class="btn btn-primary" value="Create and Login">
+</form>
+{% endblock content %}
