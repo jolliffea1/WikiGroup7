@@ -1,5 +1,5 @@
 from . import WikiBaseTestCase
-from wiki.web import UserForm
+from wiki.web.UserForm import MyJsonParser
 
 class WebContentTestCase(WikiBaseTestCase):
     """
@@ -16,6 +16,6 @@ class WebContentTestCase(WikiBaseTestCase):
         assert rsp.status_code == 200
 
     def test_write_JsonParser(self):
-        jsonparser = UserForm.MyJsonParser
+        jsonparser = MyJsonParser()
 
-        assert jsonparser.add_user("name","1234") is False
+        assert jsonparser.add_user("name", "1234") is False
