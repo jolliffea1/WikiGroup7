@@ -19,3 +19,5 @@ class WebContentTestCase(WikiBaseTestCase):
         jsonparser = MyJsonParser()
 
         assert jsonparser.add_user("name", "1234") is False
+        assert jsonparser.add_user("Jesus","1234") is False
+        assert jsonparser.add_user("Mark", "Master Of All") is False

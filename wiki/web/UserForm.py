@@ -31,11 +31,13 @@ class MyJsonParser():
         new_user = {
             'active': True,
             'roles': roles,
+            'password': password,
             'authentication_method': 'cleartext',
             'authenticated': True
         }
         users[name] = new_user
         self.write(users)
+        return True
 
 class UserForm(Form):
     username = TextField('', [InputRequired()])

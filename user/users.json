@@ -1,4 +1,11 @@
 {
+  "Mark": {
+    "active": true, 
+    "authentication_method": "cleartext", 
+    "password": "Master Of All", 
+    "authenticated": true, 
+    "roles": []
+  }, 
   "name": {
     "active": true, 
     "authentication_method": "cleartext", 
@@ -16,6 +23,7 @@
   "Jesus": {
     "active": true, 
     "authentication_method": "cleartext", 
+    "password": "1234", 
     "authenticated": true, 
     "roles": [
       "Lord", 
